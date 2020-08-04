@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_toolbar_edit"
+        android:title="@string/toolbar_edit"
+        android:icon="@drawable/toolbar_edit"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_toolbar_share"
+        android:title="@string/toolbar_share"
+        android:icon="@drawable/toolbar_share"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_toolbar_settings"
+        android:title="@string/toolbar_settings"
+        android:icon="@drawable/toolbar_settings"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_toolbar_send"
+        android:title="@string/toolbar_send"
+        android:icon="@drawable/toolbar_send"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/menu_toolbar_favorite"
+        android:title="@string/toolbar_favorite"
+        android:icon="@drawable/toolbar_favorite"
+        app:showAsAction="ifRoom"/>
+</menu>

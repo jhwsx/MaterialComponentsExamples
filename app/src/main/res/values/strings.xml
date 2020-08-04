@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MaterialComponentsExamples</string>
+    <string name="toolbar">Toolbar</string>
+    <string name="toolbar_share">Share</string>
+    <string name="toolbar_settings">Settings</string>
+    <string name="toolbar_edit">Edit</string>
+    <string name="toolbar_send">Send</string>
+    <string name="toolbar_favorite">Favorite</string>
+</resources>
