@@ -16,8 +16,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".toolbar.ToolbarActivity"
-            android:label="@string/toolbar"/>
+        <activity
+            android:name=".toolbar.ToolbarActivity"
+            android:label="@string/toolbar" />
+        <activity android:name=".toolbar.ToolbarDemo1Activity" />
+        <activity android:name=".toolbar.ToolbarDemo2Activity" />
+        <activity android:name=".toolbar.ToolbarDemo3Activity" />
+        <activity android:name=".toolbar.ToolbarDemo4Activity" />
+        <activity android:name=".toolbar.ToolbarDemo5Activity" />
+        <activity android:name=".toolbar.ToolbarDemo6Activity" />
+        <activity android:name=".toolbar.ToolbarDemo7Activity" />
+        <activity android:name=".toolbar.ToolbarDemo8Activity" />
+        <activity android:name=".toolbar.ToolbarDemo9Activity" />
+        <activity
+            android:name=".toolbar.ToolbarDemo10Activity"
+            android:theme="@style/AppTheme.NoActionBar.OverflowMenu" />
+        <activity android:name=".toolbar.ToolbarDemo11Activity" />
     </application>
 
 </manifest>

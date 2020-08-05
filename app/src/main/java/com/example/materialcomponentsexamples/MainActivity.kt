@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.main_activity.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
     private val list: List<Data> = listOf(
-        Data(R.string.toolbar, ToolbarActivity::class.java)
+        Data("Toolbar", ToolbarActivity::class.java)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

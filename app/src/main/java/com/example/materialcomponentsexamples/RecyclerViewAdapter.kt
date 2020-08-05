@@ -31,7 +31,7 @@ class RecyclerViewAdapter(private val list: List<Data>, private val itemCallback
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Data) {
-            binding.tv.setText(item.name)
+            binding.tv.text = item.name
             itemView.setOnClickListener {
                 itemCallback.invoke(item)
             }

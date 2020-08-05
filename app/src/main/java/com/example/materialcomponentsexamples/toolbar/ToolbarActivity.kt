@@ -1,10 +1,15 @@
 package com.example.materialcomponentsexamples.toolbar
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.materialcomponentsexamples.Data
 import com.example.materialcomponentsexamples.R
+import com.example.materialcomponentsexamples.RecyclerViewAdapter
 import com.example.materialcomponentsexamples.databinding.ToolbarActivityBinding
 
 /**
@@ -41,62 +46,85 @@ import com.example.materialcomponentsexamples.databinding.ToolbarActivityBinding
  * @date 8/4/20
  */
 class ToolbarActivity : AppCompatActivity() {
-
+    private val list: List<Data> = listOf(
+        Data("1, 演示：开启默认的返回箭头；显示默认的标题，副标题。", ToolbarDemo1Activity::class.java),
+        Data("2, 演示：修改 1 中箭头，标题颜色为白色。", ToolbarDemo2Activity::class.java),
+        Data("3, 演示：修改默认返回箭头的颜色。", ToolbarDemo3Activity::class.java),
+        Data("4, 演示：使用自定义的返回箭头。", ToolbarDemo4Activity::class.java),
+        Data("5, 演示：修改标题，副标题文本的颜色，样式。", ToolbarDemo5Activity::class.java),
+        Data("6, 演示：给 Toolbar 添加一个 TextView，实现标题居中。", ToolbarDemo6Activity::class.java),
+        Data("7, 演示：添加菜单。", ToolbarDemo7Activity::class.java),
+        Data("8, 演示：修改溢出图标的颜色。", ToolbarDemo8Activity::class.java),
+        Data("9, 演示：使用自定义的溢出图标。", ToolbarDemo9Activity::class.java),
+        Data("10, 演示：调整弹出菜单的背景，水平位置偏移量，以及不遮挡 Toolbar。", ToolbarDemo10Activity::class.java),
+        Data("11, 演示：调整标题和导航图标的距离。", ToolbarDemo11Activity::class.java)
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ToolbarActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarToolbar)
-        // 开启默认的 navigationIcon, 如果属性 app:navigationIcon="@drawable/ic_back_circle" 设置了，无需写下面这行。
-         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        supportActionBar?.setDisplayShowHomeEnabled(true)
-        binding.toolbarToolbar.setNavigationOnClickListener { finish() }
-
-        setSupportActionBar(binding.toolbarToolbar1)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        binding.toolbarToolbar2.setNavigationOnClickListener { finish() }
-
-        val function: (MenuItem) -> Boolean = {
-            when (it.itemId) {
-                R.id.menu_toolbar_edit -> {
-                    Toast.makeText(this@ToolbarActivity, R.string.toolbar_edit, Toast.LENGTH_SHORT)
-                        .show()
-                    true
-                }
-                R.id.menu_toolbar_send -> {
-                    Toast.makeText(this@ToolbarActivity, R.string.toolbar_send, Toast.LENGTH_SHORT)
-                        .show()
-                    true
-                }
-                R.id.menu_toolbar_settings -> {
-                    Toast.makeText(
-                        this@ToolbarActivity,
-                        R.string.toolbar_settings,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    true
-                }
-                R.id.menu_toolbar_favorite -> {
-                    Toast.makeText(
-                        this@ToolbarActivity,
-                        R.string.toolbar_favorite,
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    true
-                }
-                R.id.menu_toolbar_share -> {
-                    Toast.makeText(this@ToolbarActivity, R.string.toolbar_share, Toast.LENGTH_SHORT)
-                        .show()
-                    true
-                }
-                else -> {
-                    false
-                }
-            }
+        binding.recyclerviewToolbar.layoutManager = LinearLayoutManager(this)
+        binding.recyclerviewToolbar.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                DividerItemDecoration.VERTICAL
+            )
+        )
+        binding.recyclerviewToolbar.adapter = RecyclerViewAdapter(list) {
+            val intent = Intent(this@ToolbarActivity, it.clazz)
+            startActivity(intent)
         }
-        binding.toolbarToolbar3.setOnMenuItemClickListener(function)
-        binding.toolbarToolbar4.setOnMenuItemClickListener(function)
+//        // 开启默认的 navigationIcon, 如果属性 app:navigationIcon="@drawable/ic_back_circle" 设置了，无需写下面这行。
+//         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+////        supportActionBar?.setDisplayShowHomeEnabled(true)
+//        binding.toolbarToolbar.setNavigationOnClickListener { finish() }
+//
+//        setSupportActionBar(binding.toolbarToolbar1)
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//
+//        binding.toolbarToolbar2.setNavigationOnClickListener { finish() }
+//
+//        val function: (MenuItem) -> Boolean = {
+//            when (it.itemId) {
+//                R.id.menu_toolbar_edit -> {
+//                    Toast.makeText(this@ToolbarActivity, R.string.toolbar_edit, Toast.LENGTH_SHORT)
+//                        .show()
+//                    true
+//                }
+//                R.id.menu_toolbar_send -> {
+//                    Toast.makeText(this@ToolbarActivity, R.string.toolbar_send, Toast.LENGTH_SHORT)
+//                        .show()
+//                    true
+//                }
+//                R.id.menu_toolbar_settings -> {
+//                    Toast.makeText(
+//                        this@ToolbarActivity,
+//                        R.string.toolbar_settings,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    true
+//                }
+//                R.id.menu_toolbar_favorite -> {
+//                    Toast.makeText(
+//                        this@ToolbarActivity,
+//                        R.string.toolbar_favorite,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    true
+//                }
+//                R.id.menu_toolbar_share -> {
+//                    Toast.makeText(this@ToolbarActivity, R.string.toolbar_share, Toast.LENGTH_SHORT)
+//                        .show()
+//                    true
+//                }
+//                else -> {
+//                    false
+//                }
+//            }
+//        }
+//        binding.toolbarToolbar3.setOnMenuItemClickListener(function)
+//        binding.toolbarToolbar4.setOnMenuItemClickListener(function)
 
     }
 

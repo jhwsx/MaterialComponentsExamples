@@ -11,10 +11,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="ToolbarTheme" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
-        <item name="colorControlNormal">@android:color/holo_red_dark</item>
-        <item name="android:colorControlNormal">@android:color/holo_red_dark</item>
+    <style name="AppTheme.NoActionBar.OverflowMenu">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionOverflowMenuStyle">@style/Widget.MaterialComponents.PopupMenu.Overflow.My</item>
     </style>
+
     <style name="ToolbarTitleTextAppearance" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="android:textStyle">bold</item>
         <item name="android:textAllCaps">true</item>
@@ -25,8 +27,21 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">10sp</item>
     </style>
-    <style name="ToolbarPopupTheme" parent="ThemeOverlay.MaterialComponents.Light">
-        <item name="colorControlNormal">@android:color/holo_red_dark</item>
-        <item name="android:colorControlNormal">@android:color/holo_red_dark</item>
+
+    <style name="ThemeOverlay.MaterialComponents.Toolbar.Color" parent="">
+        <item name="colorControlNormal">@android:color/darker_gray</item>
     </style>
+
+
+    <style name="Widget.MaterialComponents.PopupMenu.Overflow.My">
+        <!--水平方向的偏移-->
+        <item name="android:dropDownHorizontalOffset">0dip</item>
+        <!--竖直方向的偏移-->
+        <item name="android:dropDownVerticalOffset">8dip</item>
+        <!--是否覆盖锚点位置-->
+        <item name="android:overlapAnchor">false</item>
+        <!--设置弹出菜单的背景-->
+        <item name="android:popupBackground">@drawable/popup_background</item>
+    </style>
+
 </resources>

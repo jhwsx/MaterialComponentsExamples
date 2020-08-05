@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:title="Toolbar Demo1"
+        app:logo="@drawable/ic_android"
+        app:subtitle="Toolbar subtitle"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary" />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="在 Activity 的 theme 里添加 actionOverflowMenuStyle 属性为 @style/Widget.MaterialComponents.PopupMenu.Overflow.My，设置 android:dropDownHorizontalOffset=0dp 属性和 android:overlapAnchor=false" />
+</LinearLayout>
