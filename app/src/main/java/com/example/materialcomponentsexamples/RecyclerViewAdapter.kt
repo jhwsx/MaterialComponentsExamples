@@ -1,7 +1,8 @@
 package com.example.materialcomponentsexamples
 
-import android.content.Intent
+import android.text.TextUtils
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.materialcomponentsexamples.databinding.RecyclerItemBinding
@@ -31,7 +32,13 @@ class RecyclerViewAdapter(private val list: List<Data>, private val itemCallback
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: Data) {
-            binding.tv.text = item.name
+            binding.tvTitle.text = item.title
+            if (!TextUtils.isEmpty(item.subtitle)) {
+                binding.tvSubtitle.visibility = View.VISIBLE
+                binding.tvSubtitle.text = item.subtitle
+            } else {
+                binding.tvSubtitle.visibility = View.GONE
+            }
             itemView.setOnClickListener {
                 itemCallback.invoke(item)
             }
