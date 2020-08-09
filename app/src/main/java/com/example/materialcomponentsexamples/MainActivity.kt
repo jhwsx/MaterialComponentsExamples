@@ -7,15 +7,19 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.materialcomponentsexamples.databinding.MainActivityBinding
 import com.example.materialcomponentsexamples.toolbar.ToolbarActivity
-import com.example.materialcomponentsexamples.topappbar.AppBarLayoutToolbar1Activity
-import com.example.materialcomponentsexamples.topappbar.AppBarLayoutToolbar2Activity
+import com.example.materialcomponentsexamples.topappbar.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: MainActivityBinding
     private val list: List<Data> = listOf(
         Data("Toolbar", ToolbarActivity::class.java, "Toolbar 的使用"),
         Data("AppbarLayout+Toolbar", AppBarLayoutToolbar1Activity::class.java, "AppBarLayout包裹 Toolbar，实现 Toolbar 的滚动效果。"),
-        Data("AppbarLayout+Toolbar", AppBarLayoutToolbar2Activity::class.java, "AppBarLayout包裹 Toolbar，实现 Toolbar 的滚动效果（透明状态栏）。")
+        Data("AppbarLayout+Toolbar", AppBarLayoutToolbar2Activity::class.java, "AppBarLayout包裹 Toolbar，实现 Toolbar 的滚动效果（透明状态栏）。"),
+        Data("AppbarLayout+Toolbar", AppBarLayoutToolbar3Activity::class.java, "AppBarLayout包裹 Toolbar，实现 Toolbar 的滚动效果（悬停 TabLayout）。"),
+        Data("CollapsingToolbarLayout", CollapsingToolbarLayout1Activity::class.java, "突出的顶部应用栏效果，单行标题"),
+        Data("CollapsingToolbarLayout", CollapsingToolbarLayout2Activity::class.java, "突出的顶部应用栏效果，多行标题"),
+        Data("CollapsingToolbarLayout", CollapsingToolbarLayout3Activity::class.java, "突出的顶部应用栏效果，带有图片"),
+        Data("CollapsingToolbarLayout", CollapsingToolbarLayout4Activity::class.java, "突出的顶部应用栏效果，带有图片,折叠后变为正常的应用栏")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

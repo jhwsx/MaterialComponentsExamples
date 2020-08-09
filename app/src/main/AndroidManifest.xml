@@ -34,6 +34,13 @@
         <activity android:name=".toolbar.ToolbarDemo11Activity" />
         <activity android:name=".topappbar.AppBarLayoutToolbar1Activity" />
         <activity android:name=".topappbar.AppBarLayoutToolbar2Activity" />
+        <activity android:name=".topappbar.AppBarLayoutToolbar3Activity" />
+        <activity android:name=".topappbar.CollapsingToolbarLayout1Activity" />
+        <activity android:name=".topappbar.CollapsingToolbarLayout2Activity" />
+        <activity android:name=".topappbar.CollapsingToolbarLayout3Activity"
+            android:theme="@style/AppTheme.TranslucentStatus"/>
+        <activity android:name=".topappbar.CollapsingToolbarLayout4Activity"
+            android:theme="@style/AppTheme.TranslucentStatus"/>
     </application>
 
 </manifest>

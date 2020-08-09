@@ -6,25 +6,41 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.example.materialcomponentsexamples.R
+import com.example.materialcomponentsexamples.databinding.AppbarlayoutToolbar3ActivityBinding
 import com.google.android.material.appbar.AppBarLayout
 import com.wzc.coordinatorlayout.examples.ListFragment
-import kotlinx.android.synthetic.main.activity_app_bar_layout.*
+import kotlinx.android.synthetic.main.appbarlayout_toolbar3_activity.*
 
 /**
  * https://blog.csdn.net/willway_wang/article/details/96720903
  */
-class AppBarLayoutActivity : AppCompatActivity() {
+class AppBarLayoutToolbar3Activity : AppCompatActivity() {
 
     private val list = listOf(
         PageData("Android", ListFragment.newInstance("Android")),
         PageData("Kotlin", ListFragment.newInstance("Kotlin")),
         PageData("Flutter", ListFragment.newInstance("Flutter"))
     )
-
+    private lateinit var binding: AppbarlayoutToolbar3ActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_app_bar_layout)
-        viewpager.adapter = object : FragmentStatePagerAdapter(supportFragmentManager) {
+        binding = AppbarlayoutToolbar3ActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener {
+            finish()
+        }
+        setupViewPager()
+
+        binding.appbar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appbarLayout, verticalOffset ->
+            val totalScrollRange = appbarLayout.totalScrollRange
+            Log.d(TAG, "verticalOffset = $verticalOffset, totalScrollRange = $totalScrollRange")
+        })
+    }
+
+    private fun setupViewPager() {
+        binding.viewpager.adapter = object : FragmentStatePagerAdapter(supportFragmentManager) {
             override fun getItem(position: Int): Fragment = list[position].fragment
 
             override fun getCount(): Int = list.size
@@ -32,14 +48,7 @@ class AppBarLayoutActivity : AppCompatActivity() {
             override fun getPageTitle(position: Int): CharSequence? = list[position].title
 
         }
-        tablayout.setupWithViewPager(viewpager)
-
-        appbar.addOnOffsetChangedListener(object : AppBarLayout.OnOffsetChangedListener {
-            override fun onOffsetChanged(appbarLayout: AppBarLayout, verticalOffset: Int) {
-                val totalScrollRange = appbarLayout.totalScrollRange
-                Log.d(TAG, "verticalOffset = $verticalOffset, totalScrollRange = $totalScrollRange")
-            }
-        })
+        binding.tablayout.setupWithViewPager(viewpager)
     }
 
     companion object {

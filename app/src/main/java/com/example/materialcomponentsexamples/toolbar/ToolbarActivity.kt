@@ -64,6 +64,8 @@ class ToolbarActivity : AppCompatActivity() {
         val binding = ToolbarActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbarToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbarToolbar.setNavigationOnClickListener { finish() }
         binding.recyclerviewToolbar.layoutManager = LinearLayoutManager(this)
         binding.recyclerviewToolbar.addItemDecoration(
             DividerItemDecoration(

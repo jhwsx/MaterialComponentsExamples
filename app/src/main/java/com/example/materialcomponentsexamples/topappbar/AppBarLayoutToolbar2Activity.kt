@@ -10,7 +10,7 @@ import com.example.materialcomponentsexamples.R
 import com.example.materialcomponentsexamples.databinding.AppbarlayoutToolbar2ActivityBinding
 import com.google.android.material.appbar.AppBarLayout
 import com.wzc.coordinatorlayout.examples.ListFragment
-import kotlinx.android.synthetic.main.activity_app_bar_layout.*
+import kotlinx.android.synthetic.main.appbarlayout_toolbar3_activity.*
 
 class AppBarLayoutToolbar2Activity : AppCompatActivity() {
 
